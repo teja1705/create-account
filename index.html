@@ -10,25 +10,33 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="atos-container">
-        <div class="atos-header">
-            <div class="atos-form">
-                <h2 class="atos-h2">Create an Account</h2>
-                <p>      
-                <label class="atos-label">Email address</label>
-                <input class="atos-input" value="" type="text" id="email"></p>
-                <p>      
-                <label class="atos-label">Phone</label>
-                <input class="atos-input" value="" type="text" id="phone"></p>
-                <p>      
-                <label class="atos-label">Password</label>
-                <input class="atos-input" value="" type="password" id="password"></p>
-                </div>
+    <div class="page-header">
+        <div class="page-response">
+            <p id="res"></p>
         </div>
-        <div class="atos-button">
-            <button id="create"><i class="fas fa-lock"></i>Create Account</button>
+        <div class="atos-container" id="container">
+            <div class="atos-header">
+                <div class="atos-form">
+                    <h2 class="atos-h2">Create an Account</h2>
+                    <p>      
+                    <label class="atos-label">User Name</label>
+                    <input class="atos-input" value="" type="text" id="username"></p>
+                    <p>      
+                    <label class="atos-label">Email address</label>
+                    <input class="atos-input" value="" type="text" id="email"></p>
+                    <p>      
+                    <label class="atos-label">Phone</label>
+                    <input class="atos-input" value="" type="text" id="phone"></p>
+                    <p>      
+                    <label class="atos-label">Password</label>
+                    <input class="atos-input" value="" type="password" id="password"></p>
+                    </div>
+            </div>
+            <div class="atos-button">
+                <button id="create"><i class="fas fa-lock"></i>Create Account</button>
+            </div>
+            <p class="p">By clicking Create account, you agree to our <span>terms</span> and have read and acknowledge our <span>privacy statement</span>.</p>
         </div>
-        <p class="p">By clicking Create account, you agree to our <span>terms</span> and have read and acknowledge our <span>privacy statement</span>.</p>
     </div>
 </body>
 </html>
