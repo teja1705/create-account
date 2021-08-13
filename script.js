@@ -1,62 +1,70 @@
-const create = document.getElementById('create');
+const button = document.getElementById('btn');
+const username = document.getElementById('username');
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+const cpassword = document.getElementById('password2');
 
-function register(){
-    var usernameEl = document.querySelector('#username').value;
-    var emailEl = document.querySelector('#email').value;
-    var phoneEl = document.querySelector('#phone').value;
-    var passwordEl = document.querySelector('#password').value;
-    const user ={username : usernameEl,email : emailEl,phone : phoneEl,password:passwordEl}
-    getallData(user);
-}
+function checkInputs(){
+    const usernameValue = username.value.trim();    
+    const emailValue = email.value.trim();
+    const passwordValue = password.value.trim();
+    const cpasswordValue = cpassword.value.trim();
 
-create.addEventListener('click',()=>{
-    register();
-})
-
-function loadData(user){
-    window.localStorage.setItem(user.username, JSON.stringify(user))
-}
-
-function getallData(user){
-    var pageres = document.getElementsByClassName('page-response');
-    var body=document.getElementById('container');
-    var res = document.getElementById("res");
-    var flag=true
-    Object.entries(localStorage).forEach((ele)=>{
-        if(JSON.parse(ele[1]).username === user.username){
-            flag=false
-        }
-    })
-    if(flag){
-        res.innerHTML="Registered Successfully";
-        res.style.color= "#2ecc71";
-        pageres[0].style.display="inline";
-        loadData(user)
-        body.innerHTML=
-        `
-        <div class="atos-container">
-            <div class="atos-header">
-                <div class="atos-form">
-                    <h2 class="atos-h2">Sign in</h2>   
-                    <label class="atos-label">Email address</label>
-                    <input class="atos-input" value="" type="text" id="email1"></p>     
-                    <label class="atos-label">Password</label>
-                    <input class="atos-input" value="" type="password" id="password1"></p>
-                </div>
-            </div>
-            <div class="atos-button">
-                <button id="create">Sign in</button>
-            </div>
-            </div>
-
-        `
-
+    if(usernameValue === ''){
+        setErrorFor(username, 'Username cannot be blank');
     }
     else{
-        // location.reload();
-        res.innerHTML="user exist";
-        res.style.color= "#e74c3c";
-        pageres[0].style.display="inline";
+        setSuccessFor(username);
+    } 
+
+
+    if(emailValue === ''){
+        setErrorFor(email, 'Email cannot be blank');
     }
+    else if(!isEmail(emailValue)){
+        setErrorFor(email, 'Email is not valid');
+    }
+    else{
+        setSuccessFor(email);
+    }
+
+
+    if(passwordValue === ''){
+        setErrorFor(password, 'Password cannot be blank');
+    }
+    else{
+        setSuccessFor(password);
+    } 
+
+    if(cpasswordValue === ''){
+        setErrorFor(cpassword, 'Password cannot be blank');
+    }
+    else if(cpasswordValue !== passwordValue){
+        setErrorFor(cpassword, 'Password does not match');
+    }
+    else{
+        setSuccessFor(cpassword);
+    } 
+}
+function setErrorFor(input, message){
+    const formControl = input.parentElement;
+    const small = formControl.querySelector('small');
+    small.innerText = message;
+    formControl.className = 'form-control error';
+}
+function setSuccessFor(input){
+    const formControl = input.parentElement;
+    formControl.className = 'form-control success';
 }
 
+function isEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+button.addEventListener('click',(e)=>{
+    e.preventDefault();
+    
+    checkInputs();
+    })
+    
