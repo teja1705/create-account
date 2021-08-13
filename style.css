@@ -1,112 +1,114 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 *{
     box-sizing: border-box;
 }
 
 body{
-    /* font-family: "Poppins", sans-serif; */
-    margin:0;
-    display: flex;
-    align-items: center;
-    justify-content:center;
+    font-family: "Open Sans", sans-serif;
     background-color: #f6f6f6;
     background-image: linear-gradient(315deg, #f6f6f6 0%, #e9e9e9 74%);
-    min-height: 100vh;
-}
-
-
-
-.page-response{
-    width: 410px;
-    height: 50px;
-    margin-bottom: 1rem;
-    justify-content:space-between;
+    display: flex;
     align-items: center;
-    display: none;
-}
-
-.page-response p{
-    text-align: center;
-    font-family: "Poppins",sans-serif;
-    font-weight: bold;
-}
-
-.atos-container{
-    background-color: white;
-    width: 410px;
-    height: 550px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 5px rgba(0,0,0, 0.1);
-    overflow: hidden;
-}
-
-.atos-header{
-    border: 5px;
-    padding: 0.5rem 2rem;
-}
-
-.atos-header h2{
-    text-align: center;
-    margin: 0;
-    padding: 1rem;
-    font-family: "Poppins",sans-serif;
-}
-
-.atos-form{
-    padding: 0.01em 2px;
-}
-.atos-input{
-    padding: 8px;
-    width: 100%;
-    display:block;
-    border-radius: 2px;
-    border: none;
-    background-color: #f6f6f6;
-    font-family: "Poppins",sans-serif;
-    font-weight: normal;
-}
-
-.atos-label{
-    font-size: 1rem;
-    font-family: "Poppins",sans-serif;
-}
-
-.atos-button{
-    display:flex;
     justify-content: center;
-    align-items: center;
+    min-height: 100vh;
+    margin:0;
 }
 
-.atos-button button{
-    background-color: #2980b9;
-    color: white;
-    display: block;
-    font-size: 1rem;
-    width: 85%;
-    border: 0;
-    padding: 1rem;
-    cursor: pointer;
+.container{
+    background-color: white;
     border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 400px;
+    max-width: 100%;
 }
 
-i{
-    padding-right: 10px;
+.header{
+    background-color: #f7f7f7;
+    padding: 20px 40px;
+    border-bottom: 1px solid #f0f0f0;
 }
 
-.atos-button button:hover{
-    box-shadow: 0 0 10px 5px rgba(0,0,0, 0.1);
-    background-color: #135a8a;
-
-}
-.p{
-    padding:1rem;
-    font-weight: normal;
-    font-size: 0.83rem;
-    text-align: center;
+.header h2{
+    margin: 0;
 }
 
-.p span{
-    color: #3498db;
+.form{
+    padding: 30px 40px;
 }
 
+.form-control{
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.form-control label{
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.form-control input{
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+}
+
+.form-control.success input{
+    border-color: #2ecc71;
+}
+
+.form-control.error input{
+    border-color: #e74c3c;
+}
+
+.form-control.success i.fa-check-circle{
+    visibility: visible;
+    color: #2ecc71;
+}
+
+.form-control.error i.fa-exclamation-circle{
+    visibility: visible;
+    color: #e74c3c;
+}
+
+.form-control i{
+    position: absolute;
+    top: 35px;
+    right: 10px;
+    visibility: hidden;
+}
+
+.form-control small{
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.form-control.error small{
+    color: #e74c3c;
+    visibility: visible;
+}
+
+.form button{
+    background-color: #3498db;
+    border: 2px solid #3498db;
+    color: #fff;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-family: inherit;
+    border-radius: 4px;
+}
+
+.form button:hover{
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
